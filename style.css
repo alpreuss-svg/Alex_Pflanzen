@@ -1,0 +1,64 @@
+/* Aufbau: eine Spalte fürs Handy; Foto zuerst, darunter die Skalen Wasser und Licht */
+:root{--bg:#eef3ef;--fl:#fbfdfb;--fg:#13241e;--leise:#52665e;--linie:#cfdbd4;--akz:#17463a;--akzfg:#f2faf5;--gut:#2c7a4b;--warn:#8a5608;--schlecht:#b3322b;--wasser:#1f6f9f;--sonne:#a87400;--f:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1714;--fl:#17231f;--fg:#e4efe9;--leise:#9db2a8;--linie:#2c3d36;--akz:#8fd3b0;--akzfg:#0c2119;--gut:#74cf98;--warn:#e8b45a;--schlecht:#f08a80;--wasser:#79bde6;--sonne:#e6bd55;color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 var(--f);padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+header,main{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+header{display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:calc(8px + env(safe-area-inset-top));padding-bottom:8px;min-height:60px}
+h1{font-size:1.35rem;margin:0;flex:1;min-width:0;overflow-wrap:anywhere;letter-spacing:-.015em}
+h2{font-size:1.05rem;margin:28px 0 10px}
+h3{font-size:1rem;margin:0}
+p{margin:0 0 8px;overflow-wrap:anywhere}
+a{color:var(--wasser)}
+.abst{margin-top:14px}
+.leise{color:var(--leise);font-size:.9rem}
+button,.knopf{font:inherit;font-weight:600;border:1px solid var(--linie);background:var(--fl);color:var(--fg);border-radius:10px;min-height:46px;padding:8px 14px;display:inline-flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative}
+.breit{width:100%}
+button.haupt,.knopf.haupt{background:var(--akz);color:var(--akzfg);border-color:var(--akz)}
+button.weg{color:var(--schlecht)}
+button.still{border:0;background:none;padding:8px;min-width:44px}
+button:disabled{opacity:.5}
+:focus-visible,.knopf:focus-within{outline:3px solid var(--wasser);outline-offset:2px}
+.knopf input{position:absolute;opacity:0;width:1px;height:1px}
+.reihe{display:flex;gap:8px;flex-wrap:wrap}
+.reihe>*{flex:1 1 130px}
+.liste{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.pfl{display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:center;justify-content:stretch;text-align:left;font-weight:400;padding:8px;width:100%}
+.pfl img,.pfl .leer{width:88px;height:100px;object-fit:cover;border-radius:7px;background:var(--linie)}
+.pfl b{display:block;font-size:1.08rem}
+.pfl>span{min-width:0;overflow-wrap:anywhere}
+.zust{font-size:.9rem;font-weight:600;display:block;margin-top:2px}
+.gut{color:var(--gut)}.warn{color:var(--warn)}.schlecht{color:var(--schlecht)}.blau{color:var(--wasser)}
+.gross{width:100%;max-height:380px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px}
+.skala{margin:14px 0;--c:var(--sonne)}
+.skala.wasser{--c:var(--wasser)}
+.skala .oben{display:flex;justify-content:space-between;gap:8px;font-weight:600}
+.spur{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:6px}
+.spur i{height:12px;border-radius:3px;background:var(--linie)}
+.spur i.an{background:var(--c)}
+.enden{display:flex;justify-content:space-between;font-size:.8rem;color:var(--leise);margin:3px 0 6px}
+.block{border-top:1px solid var(--linie);padding:12px 0}
+summary{cursor:pointer;min-height:32px;font-weight:600}
+.todo{display:flex;gap:12px;align-items:flex-start;border-top:1px solid var(--linie);padding:12px 0}
+.todo input{width:24px;height:24px;flex:none;margin:0;accent-color:var(--akz)}
+.todo label{min-width:0;overflow-wrap:anywhere}
+label.feld{display:block;margin-bottom:14px;font-weight:600}
+label.feld span{display:block;margin-bottom:4px}
+input[type=text],input[type=password],input[type=number],input[type=date],select,textarea{font:inherit;font-weight:400;width:100%;min-height:46px;padding:9px 11px;border:1px solid var(--linie);border-radius:9px;background:var(--fl);color:var(--fg)}
+textarea{min-height:76px;resize:vertical}
+.wahl{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--linie)}
+.wahl input{width:22px;height:22px;flex:none;accent-color:var(--akz)}
+.bilder{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.bilder img{width:104px;height:124px;object-fit:cover;border-radius:9px}
+dl{margin:0}
+dt{font-weight:600;margin-top:10px}
+dd{margin:0;color:var(--leise);overflow-wrap:anywhere}
+.start{padding:16px 0}
+.hinweis{background:var(--fl);border:1px solid var(--linie);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+dialog{border:1px solid var(--linie);border-radius:14px;background:var(--fl);color:var(--fg);width:min(420px,calc(100vw - 32px));padding:20px}
+dialog::backdrop{background:#0009}
+#toast{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));max-width:480px;margin:auto;background:var(--fg);color:var(--bg);padding:12px 16px;border-radius:10px;z-index:20}
+.dreh::before{content:"";width:18px;height:18px;border:3px solid currentColor;border-right-color:transparent;border-radius:50%;margin-right:10px;animation:d 1s linear infinite;flex:none}
+@keyframes d{to{transform:rotate(1turn)}}
+@media (prefers-reduced-motion:reduce){.dreh::before{animation-duration:4s}}
